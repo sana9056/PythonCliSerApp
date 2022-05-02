@@ -7,11 +7,13 @@ import log.server_log_config
 from common.variables import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, \
     RESPONSE, DEFAULT_PORT, MAX_CONNECTIONS, ERROR
 from common.utils import get_message, send_message
+from decos import log
 
 
 SERVER_LOGGER = logging.getLogger('server')
 
 
+@log
 def process_client_message(message):
     SERVER_LOGGER.debug(f'Разбор сообщения от клиента : {message}')
     if ACTION in message and message[ACTION] == PRESENCE and TIME in message and \
@@ -23,6 +25,7 @@ def process_client_message(message):
     }
 
 
+@log
 def create_arg_parser():
     """
     Парсер аргументов коммандной строки
