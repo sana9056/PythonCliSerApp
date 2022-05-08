@@ -8,11 +8,13 @@ import log.client_log_config
 from common.variables import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, \
     RESPONSE, DEFAULT_PORT, ERROR, DEFAULT_IP_ADDRESS
 from common.utils import get_message, send_message
+from decos import log
 
 
 CLIENT_LOGGER = logging.getLogger('client')
 
 
+@log
 def create_presence(account_name='Guest'):
     out = {
         ACTION: PRESENCE,
@@ -25,6 +27,7 @@ def create_presence(account_name='Guest'):
     return out
 
 
+@log
 def process_ans(message):
     CLIENT_LOGGER.debug(f'Разбор сообщения от сервера: {message}')
     if RESPONSE in message:
@@ -33,6 +36,8 @@ def process_ans(message):
         return f'400 : {message[ERROR]}'
     raise ValueError
 
+
+@log
 def create_arg_parser():
     """
     Создаём парсер аргументов коммандной строки
