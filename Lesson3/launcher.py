@@ -1,25 +1,30 @@
-"""Лаунчер"""
-
+"""Программа-лаунчер"""
+import random
 import subprocess
+import time
 
-PROCESS = []
+PROCESSES = []
+
+
+def get_name(i):
+    return f'{random.getrandbits(128)}/{i}'
+
 
 while True:
     ACTION = input('Выберите действие: q - выход, '
-                   's - запустить сервер и клиенты, x - закрыть все окна: ')
+                   's - запустить сервер и клиенты, '
+                   'x - закрыть все окна: ')
 
     if ACTION == 'q':
         break
     elif ACTION == 's':
-        PROCESS.append(subprocess.Popen('python server.py',
-                                        creationflags=subprocess.CREATE_NEW_CONSOLE))
+
+        PROCESSES.append(subprocess.Popen('gnome-terminal -- python3 server.py', shell=True))
+
+        time.sleep(0.5)
         for i in range(2):
-            PROCESS.append(subprocess.Popen('python client.py -m send',
-                                            creationflags=subprocess.CREATE_NEW_CONSOLE))
-        for i in range(5):
-            PROCESS.append(subprocess.Popen('python client.py -m listen',
-                                            creationflags=subprocess.CREATE_NEW_CONSOLE))
+            PROCESSES.append(subprocess.Popen(f'gnome-terminal -- python3 client.py -n Test{i}', shell=True))
     elif ACTION == 'x':
-        while PROCESS:
-            VICTIM = PROCESS.pop()
+        while PROCESSES:
+            VICTIM = PROCESSES.pop()
             VICTIM.kill()
