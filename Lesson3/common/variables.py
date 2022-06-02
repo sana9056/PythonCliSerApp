@@ -1,9 +1,8 @@
 """Константы"""
-
 import logging
 
 # Порт поумолчанию для сетевого ваимодействия
-DEFAULT_PORT = 7774
+DEFAULT_PORT = 7777
 # IP адрес по умолчанию для подключения клиента
 DEFAULT_IP_ADDRESS = '127.0.0.1'
 # Максимальная очередь подключений
@@ -14,6 +13,8 @@ MAX_PACKAGE_LENGTH = 1024
 ENCODING = 'utf-8'
 # Текущий уровень логирования
 LOGGING_LEVEL = logging.DEBUG
+# База данных для хранения данных сервера:
+SERVER_DATABASE = 'sqlite:///server_base.db3'
 
 # Прококол JIM основные ключи:
 ACTION = 'action'
@@ -36,6 +37,6 @@ EXIT = 'exit'
 RESPONSE_200 = {RESPONSE: 200}
 # 400
 RESPONSE_400 = {
-    RESPONSE: 400,
-    ERROR: None
-}
+            RESPONSE: 400,
+            ERROR: None
+        }
