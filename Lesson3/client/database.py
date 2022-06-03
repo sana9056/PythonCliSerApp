@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, Table, Column, Integer, String, Text, Meta
 from sqlalchemy.orm import mapper, sessionmaker
 import os
 import sys
-sys.path.append('../../../../Users/Sana9056/Downloads/Пайтон Сетевуха/2/Урок 5. Пример практического задания/')
+sys.path.append('../')
 from common.variables import *
 import datetime
 

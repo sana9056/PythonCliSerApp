@@ -5,7 +5,7 @@ import sys
 import json
 import logging
 
-sys.path.append('../../../../Users/Sana9056/Downloads/Пайтон Сетевуха/2/Урок 5. Пример практического задания/')
+sys.path.append('../')
 from client.main_window_conv import Ui_MainClientWindow
 from client.add_contact import AddContactDialog
 from client.del_contact import DelContactDialog

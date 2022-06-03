@@ -1,7 +1,7 @@
 import sys
 import logging
 
-sys.path.append('../../../../Users/Sana9056/Downloads/Пайтон Сетевуха/2/Урок 5. Пример практического задания/')
+sys.path.append('../')
 from PyQt5.QtWidgets import QDialog, QLabel, QComboBox, QPushButton
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QStandardItemModel, QStandardItem

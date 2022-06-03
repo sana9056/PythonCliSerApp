@@ -6,7 +6,7 @@ import json
 import threading
 from PyQt5.QtCore import pyqtSignal, QObject
 
-sys.path.append('../../../../Users/Sana9056/Downloads/Пайтон Сетевуха/2/Урок 5. Пример практического задания/')
+sys.path.append('../')
 from common.utils import *
 from common.variables import *
 from common.errors import ServerError
