@@ -20,6 +20,7 @@ from decos import log
 # Инициализация клиентского логера
 logger = logging.getLogger('client')
 
+
 # Класс формировки и отправки сообщений на сервер и взаимодействия с пользователем.
 class ClientSender(threading.Thread, metaclass=ClientMaker):
     def __init__(self, account_name, sock):
@@ -85,7 +86,7 @@ class ClientSender(threading.Thread, metaclass=ClientMaker):
 
 
 # Класс-приёмник сообщений с сервера. Принимает сообщения, выводит в консоль.
-class ClientReader(threading.Thread , metaclass=ClientMaker):
+class ClientReader(threading.Thread, metaclass=ClientMaker):
     def __init__(self, account_name, sock):
         self.account_name = account_name
         self.sock = sock
@@ -196,12 +197,12 @@ def main():
         exit(1)
     else:
         # Если соединение с сервером установлено корректно, запускаем клиенский процесс приёма сообщний
-        module_reciver = ClientReader(client_name , transport)
+        module_reciver = ClientReader(client_name, transport)
         module_reciver.daemon = True
         module_reciver.start()
 
         # затем запускаем отправку сообщений и взаимодействие с пользователем.
-        module_sender = ClientSender(client_name , transport)
+        module_sender = ClientSender(client_name, transport)
         module_sender.daemon = True
         module_sender.start()
         logger.debug('Запущены процессы')
