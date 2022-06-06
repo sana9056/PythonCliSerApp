@@ -1,6 +1,7 @@
 import sys
 import os
-sys.path.append('../')
+sys.path.append(
+    '../../../../Users/Sana9056/Downloads/Пайтон Сетевуха/2/Урок 6. Пример практического задания/Урок 6. Пример практического задания/')
 import logging
 from common.variables import LOGGING_LEVEL
 
@@ -14,7 +15,7 @@ path = os.path.join(path, 'client.log')
 # создаём потоки вывода логов
 steam = logging.StreamHandler(sys.stderr)
 steam.setFormatter(client_formatter)
-steam.setLevel(logging.ERROR)
+steam.setLevel(logging.INFO)
 log_file = logging.FileHandler(path, encoding='utf8')
 log_file.setFormatter(client_formatter)
 
