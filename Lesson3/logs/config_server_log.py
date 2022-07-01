@@ -1,5 +1,6 @@
 import sys
-sys.path.append('../')
+sys.path.append(
+    '../../../../Users/Sana9056/Downloads/Пайтон Сетевуха/2/Урок 6. Пример практического задания/Урок 6. Пример практического задания/')
 import logging
 import logging.handlers
 import os
